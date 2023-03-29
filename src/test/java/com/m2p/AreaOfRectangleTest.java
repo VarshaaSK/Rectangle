@@ -59,54 +59,40 @@ public class AreaOfRectangleTest {
         }
     }
 
-//    @Nested
-//    class AreaAndPerimeterOfSquare{
-//
-//        @Test
-//        void toReturnTheAreaOfTheSquare(){
-//
-//            //Arrange
-//            int expectedSquareArea = 16;
-//
-//            //Act
-//            int actualArea = areaOfRectangle.findAreaOfSquare(4);
-//        }
-//
-//        @Test
-//        void toThrowExceptionIfSideIsNegative(){
-//            assertThrows(IllegalArgumentException.class , () -> areaOfRectangle.findAreaOfSquare(-5));
-//        }
-//
-//        @Test
-//        void toReturnThePerimeterOfTheSquare(){
-//
-//            //Arrange
-//            int expectedPerimeter = 8;
-//
-//            //Act
-//            int actualPerimeter = areaOfRectangle.findPerimeterOfSquare(2);
-//
-//            //Assert
-//            assertEquals(expectedPerimeter, actualPerimeter);
-//        }
-//
-//        @Test
-//        void toThrowExceptionInPerimeterWhenSideIsNegative(){
-//            assertThrows(IllegalArgumentException.class, () -> areaOfRectangle.findPerimeterOfSquare(-10));
-//        }
-//    }
 
     @Nested
     class SquareArea{
         AreaOfRectangle square = createSquare(3);
 
+        AreaOfRectangle squareSideWithNegativeValue = createSquare(-3);
+
         @Test
-        void toCalculateTheAreaAndPerimeter(){
+        void toCalculateTheAreaOfTheSquare(){
             int expectedArea = 9;
 
             int actualArea = square.findArea();
 
             assertEquals(expectedArea , actualArea);
+        }
+
+        @Test
+        void toCalculateThePerimeterOfTheSquare(){
+
+            int expectedPerimeter = 12;
+
+            int actualPerimeter = square.findPerimeter();
+
+            assertEquals(expectedPerimeter, actualPerimeter);
+        }
+
+        @Test
+        void toThrowExceptionOnArea(){
+            assertThrows(IllegalArgumentException.class, () -> squareSideWithNegativeValue.findArea());
+        }
+
+        @Test
+        void toThrowExceptionOnPerimeter(){
+            assertThrows(IllegalArgumentException.class , () -> squareSideWithNegativeValue.findPerimeter());
         }
     }
 
