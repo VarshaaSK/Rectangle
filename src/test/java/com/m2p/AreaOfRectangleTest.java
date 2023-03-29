@@ -11,7 +11,7 @@ public class AreaOfRectangleTest {
     AreaOfRectangle areaOfRectangle = new AreaOfRectangle();
 
     @Nested
-    class GeometricArea {
+    class RectangleArea {
         @Test
         void toReturnAreaOfRectangle(){
 
@@ -29,6 +29,28 @@ public class AreaOfRectangleTest {
         @Test
         void toThrowExceptionWhenOneParameterIsNegative(){
             assertThrows(IllegalArgumentException.class , () -> areaOfRectangle.findArea(3,-2));
+        }
+    }
+
+    @Nested
+    class RectanglePerimeter{
+
+        @Test
+        void toReturnThePerimeterOfTheRectangle(){
+
+            //Arrange
+            int expectedPerimeter = 10;
+
+            //Act
+            int actualPerimeter = areaOfRectangle.findPerimeter(2,3);
+
+            //Assert
+            assertEquals(expectedPerimeter , actualPerimeter);
+        }
+
+        @Test
+        void toThrowExceptionWhenLengthOrWidthIsInvalid(){
+            assertThrows(IllegalArgumentException.class , () -> areaOfRectangle.findPerimeter(2,-3));
         }
     }
 

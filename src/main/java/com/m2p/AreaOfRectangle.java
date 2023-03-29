@@ -7,4 +7,11 @@ public class AreaOfRectangle {
         }
         return length * width;
     }
+
+    public int findPerimeter(int length, int width) {
+        if(length <= 0 || width <= 0){
+            throw new IllegalArgumentException();
+        }
+        return 2*(length + width);
+    }
 }
